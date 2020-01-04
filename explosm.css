@@ -9,18 +9,20 @@
 }
 
 #explosm-content {
-  white-space: nowrap;
-  position: relative;
-  overflow: hidden;    /* Required to make ellipsis work */
-  text-overflow: clip;
+    white-space: nowrap;
+    position: relative;
+    overflow: hidden; /* Required to make ellipsis work */
+    text-overflow: clip;
 
-  top: 0%;
-  
-  -webkit-transition: top 3s, height 3s;
-  -moz-transition: top 3s, height 3s;
-  transition: top 3s, height 3s;
+    top: 0%;
+
+    -webkit-transition: top 3s, height 3s;
+    -moz-transition: top 3s, height 3s;
+    transition: top 3s, height 3s;
+    max-width: 30vw;
+    max-height: 25vh;
 }
 
 .explosm-image-bw {
-	-webkit-filter: contrast(10) grayscale(1) invert(1);
+    -webkit-filter: contrast(10) grayscale(1) invert(1);
 }

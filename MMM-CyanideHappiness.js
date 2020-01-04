@@ -59,7 +59,11 @@ Module.register("MMM-CyanideHappiness", {
         var img = document.createElement("img");
         img.id = "explosm-content";
         img.src = this.dailyComic;
-        img.classList.add('explosm-image');
+        if (this.config.color) {
+            img.classList.add('explosm-image');
+        }else {
+            img.classList.add('explosm-image-bw');
+        }
         comicWrapper.appendChild(img);
         wrapper.appendChild(comicWrapper);
         return wrapper;

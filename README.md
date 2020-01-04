@@ -20,7 +20,8 @@ Add this configuration into `config.js` file's
     module: "MMM-CyanideHappiness",
     position: "bottom_bar",
     config: {
-      updateInterval : 36000000
+      updateInterval : 36000000,
+      color: true
     }
 }
 ```
@@ -36,6 +37,7 @@ Here is the configurable part of the module
 | Option               | Description
 |--------------------- |-----------
 | `updateInterval`     | Set to desired update interval (in ms), default is 3600000 (10 hours).
+| `color`              | display the image in color of black/white (defaults to black/white)
 
 
 Heavily inspired by the awesome MagicMirror plugin [MMM-DailyDilbert](https://github.com/andrecarlucci/MMM-DailyDilbert).
