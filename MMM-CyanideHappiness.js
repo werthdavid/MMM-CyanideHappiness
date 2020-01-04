@@ -1,4 +1,4 @@
-Module.register("MMM-DailyDilbert", {
+Module.register("MMM-CyanideHappiness", {
 
     // Default module config.
     defaults: {
@@ -28,19 +28,19 @@ Module.register("MMM-DailyDilbert", {
     },
 
     getStyles: function() {
-        return ["dilbert.css"];
+        return ["explosm.css"];
     },
 
     getComic: function() {
-        Log.info("Dilbert: Getting comic.");
-        this.sendSocketNotification("GET_COMIC", {
+        Log.info("Explosm: Getting comic.");
+        this.sendSocketNotification("GET_COMIC_EXPLOSM", {
             config: this.config
         });
     },
 
     socketNotificationReceived: function(notification, payload) {
-        if (notification === "COMIC") {
-            Log.info('Dilbert url return: ' + payload.img);
+        if (notification === "COMIC_EXPLOSM") {
+            Log.info('Explosm url return: ' + payload.img);
             this.dailyComic = payload.img;
             this.updateDom(1000);
         }
@@ -54,12 +54,12 @@ Module.register("MMM-DailyDilbert", {
         var wrapper = document.createElement("div");
 
         var comicWrapper = document.createElement("div");
-        comicWrapper.className = "dilbert-container";
+        comicWrapper.className = "explosm-container";
     
         var img = document.createElement("img");
-        img.id = "dilbert-content";
+        img.id = "explosm-content";
         img.src = this.dailyComic;
-		img.classList.add('dilbert-image');
+		img.classList.add('explosm-image');
 		comicWrapper.appendChild(img);
         wrapper.appendChild(comicWrapper);
         return wrapper;

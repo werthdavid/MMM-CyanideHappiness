@@ -1,5 +1,5 @@
 /* The basic container */
-.dilbert-container {
+.explosm-container {
     overflow: hidden;
 
     /* To make the height of the container exact. */
@@ -8,7 +8,7 @@
     box-sizing: border-box;
 }
 
-#dilbert-content {
+#explosm-content {
   white-space: nowrap;
   position: relative;
   overflow: hidden;    /* Required to make ellipsis work */
@@ -21,6 +21,6 @@
   transition: top 3s, height 3s;
 }
 
-.dilbert-image {
+.explosm-image-bw {
 	-webkit-filter: contrast(10) grayscale(1) invert(1);
 }

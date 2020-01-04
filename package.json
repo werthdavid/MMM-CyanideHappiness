@@ -1,0 +1,29 @@
+{
+  "name": "mmm-cyanidehappiness",
+  "version": "1.0.0",
+  "description": "A module for MagicMirror 2 displaying the daily Cyanide&Happiness Comic.",
+  "main": "MMM-CyanideHappiness.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/werthdavid/MMM-CyanideHappiness.git"
+  },
+  "keywords": [
+    "magic",
+    "mirror",
+    "2",
+    "cyanide",
+    "happiness",
+    "explosm",
+    "module"
+  ],
+  "author": "David Werth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/werthdavid/MMM-CyanideHappiness/issues"
+  },
+  "homepage": "https://github.com/werthdavid/MMM-CyanideHappiness#readme",
+  "dependencies": {
+    "cheerio": "^0.22.0",
+    "request": "^2.88.0"
+  }
+}
