@@ -10,16 +10,15 @@ Module.register("MMM-CyanideHappiness", {
         Log.info("Starting module: " + this.name);
 
         this.dailyComic = "";
-        this.getComic();
+        this.sendSocketNotification("GET_COMIC_EXPLOSM", this.config);
 
-        self = this;
-        if (self.config.updateInterval < 60000) {
-            self.config.updateInterval = 60000;
+        if (this.config.updateInterval < 60000) {
+            this.config.updateInterval = 60000;
         }
 
-        setInterval(function () {
-            self.getComic();
-        }, self.config.updateInterval);
+        setInterval( () => {
+            this.sendSocketNotification("GET_COMIC_EXPLOSM", this.config);
+        }, this.config.updateInterval);
     },
 
     // Define required scripts.
@@ -29,13 +28,6 @@ Module.register("MMM-CyanideHappiness", {
 
     getStyles: function () {
         return ["explosm.css"];
-    },
-
-    getComic: function () {
-        Log.info("Explosm: Getting comic.");
-        this.sendSocketNotification("GET_COMIC_EXPLOSM", {
-            config: this.config
-        });
     },
 
     socketNotificationReceived: function (notification, payload) {
