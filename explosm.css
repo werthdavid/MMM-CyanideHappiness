@@ -1,26 +1,19 @@
 /* The basic container */
 .explosm-container {
     overflow: hidden;
+    display: flex;
 
-    /* To make the height of the container exact. */
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
-#explosm-content {
-    white-space: nowrap;
-    position: relative;
-    overflow: hidden; /* Required to make ellipsis work */
-    text-overflow: clip;
-
-    top: 0%;
-
-    -webkit-transition: top 3s, height 3s;
-    -moz-transition: top 3s, height 3s;
-    transition: top 3s, height 3s;
     max-width: 30vw;
     max-height: 25vh;
+}
+
+.explosm-img-container {
+    flex: 1;
+}
+
+.explosm-img-container > img {
+   max-width: 100%;
+   max-height: 100%;
 }
 
 .explosm-image-bw {

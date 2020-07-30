@@ -9,14 +9,14 @@ Module.register("MMM-CyanideHappiness", {
         Log.info(this.config);
         Log.info("Starting module: " + this.name);
 
-        this.dailyComic = "";
+        this.dailyComics = [];
         this.sendSocketNotification("GET_COMIC_EXPLOSM", this.config);
 
         if (this.config.updateInterval < 60000) {
             this.config.updateInterval = 60000;
         }
 
-        setInterval( () => {
+        setInterval(() => {
             this.sendSocketNotification("GET_COMIC_EXPLOSM", this.config);
         }, this.config.updateInterval);
     },
@@ -32,8 +32,8 @@ Module.register("MMM-CyanideHappiness", {
 
     socketNotificationReceived: function (notification, payload) {
         if (notification === "COMIC_EXPLOSM") {
-            Log.info('Explosm url return: ' + payload.img);
-            this.dailyComic = payload.img;
+            Log.info("Explosm url return: " + payload.img);
+            this.dailyComics = payload.imgs;
             this.updateDom(1000);
         }
     },
@@ -48,15 +48,18 @@ Module.register("MMM-CyanideHappiness", {
         var comicWrapper = document.createElement("div");
         comicWrapper.className = "explosm-container";
 
-        var img = document.createElement("img");
-        img.id = "explosm-content";
-        img.src = this.dailyComic;
-        if (this.config.color) {
-            img.classList.add('explosm-image');
-        }else {
-            img.classList.add('explosm-image-bw');
+        for (let i = 0; i < this.dailyComics.length; i++) {
+            var imgContainer = document.createElement("div");
+            imgContainer.className = "explosm-img-container";
+            var img = document.createElement("img");
+            img.src = this.dailyComics[i];
+            if (!this.config.color) {
+                img.classList.add("explosm-image-bw");
+            }
+            imgContainer.appendChild(img);
+            comicWrapper.appendChild(imgContainer);
         }
-        comicWrapper.appendChild(img);
+
         wrapper.appendChild(comicWrapper);
         return wrapper;
     }
